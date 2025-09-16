@@ -1,5 +1,6 @@
 package br.com.unifatecie.rmp;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -20,5 +21,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Intent intent = new Intent(getBaseContext(), segunda_Activity.class);// cria a intent para iniciar a segunda activity
+        startActivity(intent);// inicia a segunda activity
     }
 }
