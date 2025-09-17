@@ -7,20 +7,11 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_width="417dp"
+        android:layout_height="25dp"
         android:background="#EF0101"
-        tools:layout_editor_absoluteX="-4dp"
+        tools:layout_editor_absoluteX="-6dp"
         tools:layout_editor_absoluteY="0dp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="160dp"
-        android:layout_height="30dp"
-        android:text="Lista de Compras"
-        android:textSize="20dp"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="72dp" />
 
     <!--Lista-->
 
@@ -36,12 +27,22 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="0dp" />-->
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:text="Lista de Compras"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="40dp" />
+
     <ListView
         android:id="@+id/lssecond"
-        android:layout_width="415dp"
-        android:layout_height="622dp"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="108dp" />
+        android:layout_width="416dp"
+        android:layout_height="661dp"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="69dp" />
 
     <Button
         android:id="@+id/btnAdd"
@@ -59,7 +60,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
 
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="53dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="Editar"
         android:src="@android:drawable/ic_menu_edit"
@@ -74,7 +75,7 @@
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="Apagar"
         android:src="@android:drawable/ic_menu_delete"
-        tools:layout_editor_absoluteX="308dp"
-        tools:layout_editor_absoluteY="120dp" />
+        tools:layout_editor_absoluteX="315dp"
+        tools:layout_editor_absoluteY="79dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
