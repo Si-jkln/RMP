@@ -5,15 +5,37 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/btnEditar"
+        android:layout_width="88dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#EF0101"
+        android:text="Editar"
+        tools:layout_editor_absoluteX="307dp"
+        tools:layout_editor_absoluteY="633dp" />
+
+    <ListView
+        android:id="@+id/lsfist"
+        android:layout_width="410dp"
+        android:layout_height="611dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="118dp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/textView"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:text="Lista de Compras"
+        android:textSize="20dp"
+        tools:layout_editor_absoluteX="125dp"
+        tools:layout_editor_absoluteY="72dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#EF0101"
+        android:layout_marginBottom="40dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
