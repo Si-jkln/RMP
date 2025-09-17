@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         listViewCompras = findViewById(R.id.lsfist);
         String[] compras = {"Arroz", "Feijão", "Macarrão", "Carne", "Frango", "Leite", "Pão", "Queijo", "Manteiga", "Ovos"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.item_lista, R.id.textoItem, compras);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.item_lista,R.id.textoItem,compras);
         listViewCompras.setAdapter(adapter);
         listViewCompras.setOnItemClickListener(((parent, view, position, id) -> {
             String item = (String) parent.getItemAtPosition(position);
@@ -38,5 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Item selecionado: " + item, Toast.LENGTH_SHORT).show();
         }));
+
+
     }
 }
