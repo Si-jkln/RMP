@@ -26,6 +26,24 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="34dp" />
 
+    <EditText
+        android:id="@+id/produto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Adicionar produto"
+        android:inputType="textPersonName"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
+
+    <NumberPicker
+        android:id="@+id/qtd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:minValue="1"
+        android:maxValue="100"
+        />
+
     <ListView
         android:id="@+id/lssecond"
         android:layout_width="411dp"

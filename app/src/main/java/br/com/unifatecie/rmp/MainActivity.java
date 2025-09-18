@@ -50,17 +50,3 @@ public class MainActivity extends AppCompatActivity {
 
     }
 }
-
-        // Lista de compras
-        /*ListView listViewCompras = findViewById(R.id.lsfist); // Certifique-se que o ListView tem ID "lsfist"
-        String[] compras = {"Arroz", "Feijão", "Macarrão", "Carne", "Frango", "Leite", "Pão", "Queijo", "Manteiga", "Ovos"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.item_lista, R.id.textoItem, compras);
-        listViewCompras.setAdapter(adapter);
-
-        // Clique nos itens da lista
-        listViewCompras.setOnItemClickListener((parent, view, position, id) -> {
-            String item = (String) parent.getItemAtPosition(position);
-            Toast.makeText(this, "Item selecionado: " + item, Toast.LENGTH_SHORT).show();
-        });*/
-/*    }
-}*/
