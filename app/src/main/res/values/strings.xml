@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">RMP</string>
+    <string name="editar">Editar</string>
+    <string name="lista_de_compras">LISTA DE COMPRAS</string>
+    <string name="apagar">Apagar</string>
 </resources>

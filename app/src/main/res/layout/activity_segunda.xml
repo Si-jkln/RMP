@@ -11,21 +11,8 @@
         android:layout_height="25dp"
         android:background="#EF0101"
         tools:layout_editor_absoluteX="-6dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <!--Lista-->
-
-    <!--Campo editar-->
-
-    <!-- <EditText
-        android:id="@+id/produto"
-        android:layout_width="395dp"
-        android:layout_height="wrap_content"
-        android:layout_constraintBottom_toTopOf="@+id/btnAdd"
-        android:hint="Pruduto"
-        android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="0dp" />-->
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView"
@@ -35,14 +22,16 @@
         android:textSize="20dp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="40dp" />
+        tools:layout_editor_absoluteY="40dp"
+        tools:ignore="MissingConstraints" />
 
     <ListView
         android:id="@+id/lssecond"
         android:layout_width="416dp"
         android:layout_height="661dp"
         tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="69dp" />
+        tools:layout_editor_absoluteY="69dp"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnAdd"
@@ -53,7 +42,8 @@
         android:textSize="20sp"
         android:textStyle="bold"
         tools:layout_editor_absoluteX="319dp"
-        tools:layout_editor_absoluteY="657dp" />
+        tools:layout_editor_absoluteY="657dp"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/btnEdit"
@@ -65,7 +55,8 @@
         android:contentDescription="Editar"
         android:src="@android:drawable/ic_menu_edit"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:layout_editor_absoluteX="355dp" />
+        tools:layout_editor_absoluteX="355dp"
+        tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/btnDelete"
@@ -73,9 +64,10 @@
         android:layout_height="40dp"
 
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Apagar"
+        android:contentDescription="@string/apagar"
         android:src="@android:drawable/ic_menu_delete"
         tools:layout_editor_absoluteX="315dp"
-        tools:layout_editor_absoluteY="79dp" />
+        tools:layout_editor_absoluteY="79dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

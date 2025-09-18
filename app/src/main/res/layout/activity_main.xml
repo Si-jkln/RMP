@@ -8,16 +8,32 @@
     android:background="#FFFFFF"
     tools:context=".MainActivity">
 
+
+    <ListView
+        android:id="@+id/lsfist"
+        android:layout_width="408dp"
+        android:layout_height="629dp"
+        android:layout_marginBottom="4dp"
+        android:choiceMode="singleChoice"
+        android:divider="@color/black"
+        android:dividerHeight="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </ListView>
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="237dp"
         android:layout_height="28dp"
-        android:text="LISTA DE COMPRAS"
+        android:text="@string/lista_de_compras"
         android:textAlignment="center"
         android:textColor="#000000"
         android:divider="@color/black"
         android:dividerHeight="2dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/lsfist"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,44 +41,25 @@
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <Button
-        android:id="@+id/btnEditar"
-        android:layout_width="102dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="#EF0101"
-        android:text="Editar"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/btnEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="620dp"
+        android:layout_marginEnd="10dp"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2" />
 
-
-
-    <ListView
-        android:id="@+id/lsfist"
-        android:layout_width="0dp"
-        android:layout_height="637dp"
-        android:choiceMode="singleChoice"
-        android:divider="@color/black"
-        android:dividerHeight="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <View
         android:id="@+id/view2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="609dp"
+        android:layout_width="415dp"
+        android:layout_height="38dp"
         android:background="#EF0101"
-        app:layout_constraintBottom_toTopOf="@+id/btnEditar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
 
-        />
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
