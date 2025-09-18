@@ -7,67 +7,76 @@
 
     <View
         android:id="@+id/view"
-        android:layout_width="417dp"
-        android:layout_height="25dp"
+        android:layout_width="411dp"
+        android:layout_height="27dp"
         android:background="#EF0101"
-        tools:layout_editor_absoluteX="-6dp"
-        tools:layout_editor_absoluteY="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="160dp"
-        android:layout_height="30dp"
+        android:layout_height="27dp"
         android:text="Lista de Compras"
         android:textSize="20dp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="125dp"
-        tools:layout_editor_absoluteY="40dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="34dp" />
 
     <ListView
         android:id="@+id/lssecond"
-        android:layout_width="416dp"
+        android:layout_width="411dp"
         android:layout_height="661dp"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="69dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="#EF0101"
         android:text="+"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="319dp"
-        tools:layout_editor_absoluteY="657dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
         android:id="@+id/btnEdit"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="38dp"
+        android:layout_height="37dp"
 
-        android:layout_marginTop="53dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="Editar"
         android:src="@android:drawable/ic_menu_edit"
-        app:layout_constraintTop_toBottomOf="@+id/view"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="355dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="80dp" />
 
     <ImageButton
         android:id="@+id/btnDelete"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="39dp"
+        android:layout_height="37dp"
 
+        android:layout_marginEnd="100dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/apagar"
         android:src="@android:drawable/ic_menu_delete"
-        tools:layout_editor_absoluteX="315dp"
-        tools:layout_editor_absoluteY="79dp"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toStartOf="@+id/btnEdit"
+        app:layout_constraintStart_toEndOf="@+id/lssecond"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="81dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
