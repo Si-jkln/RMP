@@ -35,13 +35,28 @@
         android:visibility="gone"
         tools:ignore="MissingConstraints" />
 
+    <EditText
+        android:id="@+id/edtData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Data da próxima compra"
+        android:inputType="date"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/produto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:padding="8dp"/>
+
     <NumberPicker
         android:id="@+id/qtd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        android:minValue="1"
-        android:maxValue="100"
+        app:layout_constraintTop_toBottomOf="@id/edtData"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
         />
 
     <ListView
