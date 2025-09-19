@@ -1,5 +1,7 @@
 package br.com.unifatecie.rmp;
 
+import android.app.DatePickerDialog;
+import java.util.Calendar;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,19 +48,6 @@ public class SegundaActivity extends AppCompatActivity {
         adapter = new myAdapter(this, listaItems);
         listView.setAdapter(adapter);
 
-        // Ação do botão
-     /*   btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(produto.getVisibility() == View.GONE){
-                    produto.setVisibility(View.VISIBLE);
-                    qtd.setVisibility(View.VISIBLE);
-                } else {
-                    produto.setVisibility(View.GONE);
-                    qtd.setVisibility(View.GONE);
-                }
-            }
-        });*/
 
         btnAdd.setOnClickListener(v ->{
             if(edtProduto.getVisibility() == View.GONE){
@@ -89,5 +78,31 @@ public class SegundaActivity extends AppCompatActivity {
                 }
             }
         });
+
+        edtData = findViewById(R.id.edtData);
+
+        // Quando o usuário clicar no campo, abre o calendário
+        edtData.setOnClickListener(v -> {
+            final Calendar calendar = Calendar.getInstance();
+            int dia = calendar.get(Calendar.DAY_OF_MONTH);
+            int mes = calendar.get(Calendar.MONTH);
+            int ano = calendar.get(Calendar.YEAR);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    this, // Contexto
+                    (view, year, monthOfYear, dayOfMonth) -> {
+                        // Ajusta mês (começa do 0)
+                        monthOfYear += 1;
+                        String dataSelecionada = String.format("%02d/%02d/%04d", dayOfMonth, monthOfYear, year);
+                        edtData.setText(dataSelecionada);
+                    },
+                    ano,
+                    mes,
+                    dia
+            );
+
+            datePickerDialog.show();
+        });
+
     }
 }
