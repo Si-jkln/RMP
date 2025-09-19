@@ -1,52 +1,64 @@
 package br.com.unifatecie.rmp;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
     private ListView listViewCompras;
+    private ArrayList<String> listaCompras;
+    private ArrayAdapter<String> adapter;
+    private Button btnAbrirSegunda;
+
+    private ActivityResultLauncher<Intent> segundaActivityLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
-        Button button = findViewById(R.id.btnEdit);
-        button.setOnClickListener(v -> {
-            try {
-                Intent intent = new Intent(MainActivity.this, SegundaActivity.class);
-                startActivity(intent);
-            } catch (Exception e) {
-                Toast.makeText(this, "Erro ao abrir a segunda atividade: " + e.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
 
         listViewCompras = findViewById(R.id.lsfist);
-        String[] compras = {"Arroz", "Feijão", "Macarrão", "Carne", "Frango", "Leite", "Pão", "Queijo", "Manteiga", "Ovos"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.item_lista,R.id.txtNome,compras);
+        btnAbrirSegunda = findViewById(R.id.btnEdit);
+
+        // Inicializa lista e adapter
+        listaCompras = new ArrayList<>();
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaCompras);
         listViewCompras.setAdapter(adapter);
-        listViewCompras.setOnItemClickListener(((parent, view, position, id) -> {
-            String item = (String) parent.getItemAtPosition(position);
+
+        // Configura ActivityResultLauncher para receber lista da SegundaActivity
+        segundaActivityLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                        ArrayList<String> novaLista = result.getData().getStringArrayListExtra("listaItens");
+
+                        if (novaLista != null) {
+                            listaCompras.clear();
+                            listaCompras.addAll(novaLista);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+        );
+        segundaActivityLauncher.launch(new Intent(this, SegundaActivity.class));
 
 
-            Toast.makeText(this, "Item selecionado: " + item, Toast.LENGTH_SHORT).show();
-        }));
-
-
+        // Abre a SegundaActivity
+        btnAbrirSegunda.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, SegundaActivity.class);
+            segundaActivityLauncher.launch(intent);
+        });
     }
+
+    /*METADO PARA PEDIR PERMISSÃO DE NOTIFICAÇÃO*/
 }

@@ -3,116 +3,156 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFEFE">
 
+    <!-- Barra superior -->
     <View
         android:id="@+id/view"
-        android:layout_width="411dp"
+        android:layout_width="0dp"
         android:layout_height="27dp"
         android:background="#EF0101"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Título -->
     <TextView
         android:id="@+id/textView"
-        android:layout_width="160dp"
-        android:layout_height="27dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="Lista de Compras"
-        android:textSize="20dp"
+        android:textColor="#000000"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="34dp" />
+        app:layout_constraintTop_toBottomOf="@id/view" />
 
+    <!-- EditText para produto -->
     <EditText
         android:id="@+id/produto"
-        android:layout_width="match_parent"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:backgroundTint="#000000"
         android:hint="Adicionar produto"
         android:inputType="textPersonName"
+        android:padding="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#000000"
+        android:textColorHint="#FF000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:visibility="gone"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView" />
 
+    <!-- EditText para data -->
     <EditText
         android:id="@+id/edtData"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:autofillHints=""
+        android:backgroundTint="#000000"
+        android:clickable="true"
+        android:divider="@color/black"
+        android:dividerHeight="1dp"
+        android:focusable="false"
         android:hint="Data da próxima compra"
         android:inputType="date"
+        android:lineSpacingExtra="10sp"
+        android:padding="8dp"
+        android:textColor="#000000"
+        android:textColorHint="#000000"
+        android:textStyle="bold"
         android:visibility="gone"
-        android:focusable="false"
-        android:clickable="true"
-        app:layout_constraintTop_toBottomOf="@id/produto"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:padding="8dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/produto" />
 
+    <!-- NumberPicker centralizado -->
     <NumberPicker
         android:id="@+id/qtd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/edtData"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
-        android:layout_gravity="center"
-        />
+        android:backgroundTint="#000000"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edtData" />
 
+    <!-- ListView -->
     <ListView
         android:id="@+id/lssecond"
-        android:layout_width="411dp"
-        android:layout_height="661dp"
-        android:layout_marginTop="36dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:divider="@color/black"
+        android:dividerHeight="1dp"
+        app:layout_constraintBottom_toTopOf="@id/btnAdd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@id/qtd" />
 
+    <!-- Botão adicionar / salvar -->
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#EF0101"
         android:text="+"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageButton
+
+    <!-- Botão editar -->
+
+    <Button
+        android:id="@+id/btnFinalizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#EF0101"
+        android:text="Finalizar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnAdd" />
+
+    <!-- <ImageButton
         android:id="@+id/btnEdit"
         android:layout_width="38dp"
         android:layout_height="37dp"
-
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="Editar"
         android:src="@android:drawable/ic_menu_edit"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="355dp"
-        tools:layout_editor_absoluteY="80dp" />
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"/>-->
 
-    <ImageButton
+    <!-- Botão deletar -->
+    <!-- <ImageButton
         android:id="@+id/btnDelete"
         android:layout_width="39dp"
         android:layout_height="37dp"
-
-        android:layout_marginEnd="100dp"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:contentDescription="@string/apagar"
         android:src="@android:drawable/ic_menu_delete"
-        app:layout_constraintEnd_toStartOf="@+id/btnEdit"
-        app:layout_constraintStart_toEndOf="@+id/lssecond"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="81dp" />
+        app:layout_constraintTop_toBottomOf="@id/textView"
+        app:layout_constraintEnd_toStartOf="@id/btnEdit"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"/>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
