@@ -1,5 +1,6 @@
 package br.com.unifatecie.rmp;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -32,6 +33,7 @@ public class NotificationHelper {
     }
 
     // Agendar notificação
+    @SuppressLint("ScheduleExactAlarm")
     public static void agendarNotificacao(Context context, String titulo, String mensagem, Calendar calendario) {
         criarCanal(context);
 

@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
-        segundaActivityLauncher.launch(new Intent(this, SegundaActivity.class));
+        segundaActivityLauncher.launch(new Intent(this, SegundaActivity.class));// QUANDO ABRIR O APLICATIVO PELA PRIMEIRA FEZ JA VAI DIRETO NA ACTIVITY CRIAR UMA LISTA
 
 
         // Abre a SegundaActivity
@@ -59,5 +59,5 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /*METADO PARA PEDIR PERMISSÃO DE NOTIFICAÇÃO*/
+
 }
