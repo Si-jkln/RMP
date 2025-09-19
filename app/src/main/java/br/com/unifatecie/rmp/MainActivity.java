@@ -15,20 +15,19 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ListView listViewCompras;
     private ArrayList<String> listaCompras;
     private ArrayAdapter<String> adapter;
-    private Button btnAbrirSegunda;
 
     private ActivityResultLauncher<Intent> segundaActivityLauncher;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listViewCompras = findViewById(R.id.lsfist);
-        btnAbrirSegunda = findViewById(R.id.btnEdit);
+        ListView listViewCompras = findViewById(R.id.lsfist);
+        Button btnAbrirSegunda = findViewById(R.id.btnEdit);
 
         // Inicializa lista e adapter
         listaCompras = new ArrayList<>();
