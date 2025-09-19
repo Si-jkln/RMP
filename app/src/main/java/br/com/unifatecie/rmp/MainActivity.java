@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Inicializa lista e adapter
         listaCompras = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaCompras);
+        adapter = new ArrayAdapter<>(this,R.layout.item_lista,R.id.edtNome, listaCompras);
         listViewCompras.setAdapter(adapter);
 
         // Configura ActivityResultLauncher para receber lista da SegundaActivity
