@@ -99,12 +99,12 @@ public class SegundaActivity extends AppCompatActivity {
             int mes = calendar.get(Calendar.MONTH);
             int ano = calendar.get(Calendar.YEAR);
 
-            DatePickerDialog datePickerDialog = new DatePickerDialog(
-                    this,
-                    (view, year, monthOfYear, dayOfMonth) -> {
+            DatePickerDialog datePickerDialog = new DatePickerDialog( //CRIA UMA CAIXA DE DIALOGO PARA SELECIONAR A DATA
+                    this, //CONTEXTO DA ACTIVITY ATUAL
+                    (view, year, monthOfYear, dayOfMonth) -> { // E A LIGÇÃO QUE RETORNARA QUANDO O USUARIO ESCOLHER A DATA
                         monthOfYear += 1;
                         String dataSelecionada = String.format("%02d/%02d/%04d", dayOfMonth, monthOfYear, year);
-                        edtData.setText(dataSelecionada);
+                        edtData.setText(dataSelecionada);//COLOCAR A DATA ESCOLHIDA DENTRO DO EDIT TEXT
                     },
                     ano, mes, dia
             );
