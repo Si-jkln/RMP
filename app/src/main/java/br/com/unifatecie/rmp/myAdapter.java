@@ -1,7 +1,8 @@
 package br.com.unifatecie.rmp;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,19 +10,21 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
+
 public class myAdapter extends BaseAdapter {
     private Context context;
-    private ArrayList<ItemLista> items;
+    private final ArrayList<ItemLista> items;
 
     public myAdapter(Context context, ArrayList<ItemLista> items) {
         this.context = context;
         this.items = items;
     }
-
     @Override
     public int getCount() {
         return items.size();
@@ -39,29 +42,52 @@ public class myAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null)
+        if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_lista, parent, false);
+        }
 
-        TextView txtNome = convertView.findViewById(R.id.edtNome);
-        TextView txtData = convertView.findViewById(R.id.edtData);
-        TextView txtQtd = convertView.findViewById(R.id.edtQtd);
-        ImageButton btnEdit = convertView.findViewById(R.id.btnEdit);
-        ImageButton btnDelete = convertView.findViewById(R.id.btnDelete);
-
+        TextView txtNome = convertView.findViewById(R.id.txtNome);
+        TextView txtData = convertView.findViewById(R.id.txtData);
+        TextView txtQtd = convertView.findViewById(R.id.txtQtd);
+        TextView btnEdit = convertView.findViewById(R.id.btnEdit);
+        TextView btnDelete = convertView.findViewById(R.id.btnDelete);
 
         ItemLista item = getItem(position);
 
         txtNome.setText(item.getNome());
-        txtData.setText("Data: " + item.getData());
-        txtQtd.setText("Qtd: " + item.getQtd());
+        txtData.setText("Data da próxima compra: " + item.getData());
+        txtQtd.setText("Quantidade: " + item.getQtd());
 
-       /* btnDelete.setOnClickListener(v -> {
-            items.remove(position);
-            notifyDataSetChanged();
-        });*/
-
+        //editar
         btnEdit.setOnClickListener(v -> {
-            // Aqui você pode implementar uma caixa de diálogo para editar os dados
+            AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+            dialog.setTitle("Editar Produto");
+            View view = LayoutInflater.from(context).inflate(R.layout.item_lista, null);
+            TextView edtNome = view.findViewById(R.id.txtNome);
+            TextView edtData = view.findViewById(R.id.txtData);
+            TextView edtQtd = view.findViewById(R.id.txtQtd);
+
+            edtNome.setText(item.getNome());
+            edtData.setText(item.getData());
+            edtQtd.setText(String.valueOf(item.getQtd()));
+
+            dialog.setView(view);
+            dialog.setPositiveButton("Salvar", (d, w) ->{
+                item.setNome(edtNome.getText().toString());
+                item.setData(edtData.getText().toString());
+                item.setQtd(Integer.parseInt(edtQtd.getText().toString()));
+                notifyDataSetChanged();
+                });
+                    dialog.setNegativeButton("Cancelar", null);
+                     dialog.show();
+
+            });
+
+        //deletar
+        btnDelete.setOnClickListener(v -> {
+           items.remove(position);
+           notifyDataSetChanged();
+           Toast.makeText(context, "Item removido", Toast.LENGTH_SHORT).show();
         });
 
         return convertView;
